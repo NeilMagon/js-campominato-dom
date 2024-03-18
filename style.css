@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+img{
+    height: 50px;
+    max-width: 100%;
+}
+.ms-container{
+    width: 37.5rem;
+    height: 37.5rem;
+    margin: 0 auto;
+}
+.ms-bg-color {
+    background-color: #7fffd4;
+}
+.ms-square{
+    border: 1px solid;
+    cursor: pointer;
+}
+/* .ms-square-medium{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+.ms-square-hard{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+} */
+.ms-bg-lightblue{
+    background-color: aqua;
+}
