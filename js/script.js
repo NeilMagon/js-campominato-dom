@@ -20,6 +20,11 @@
 // cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
 // const play = document.querySelector("#play");
 
+// Creo l'array vuoto in cui dovrò inserire i numeri generati randomicamente se non sono doppi 
+let numBombe= [``];
+
+
+
 const grid = document.querySelector("#grid");
 
 const diff = document.querySelector("#difficoltà");
@@ -69,4 +74,17 @@ function generateSquare(number) {
     });
     return square;
 }
+
+// Creo una funzione per includere i numeri nell'array
+function bomb() {
+    let squareBomb = getRndInteger(1, 16);
+    if (!numBombe.includes(squareBomb)) {
+        numBombe.push(squareBomb);
+    }
+    return  squareBomb;
+}
+// Creo una funziona per generare numeri casuali per il pc
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
 
