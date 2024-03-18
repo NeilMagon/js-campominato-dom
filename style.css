@@ -19,14 +19,9 @@ img{
     border: 1px solid;
     cursor: pointer;
 }
-/* .ms-square-medium{
-    width: calc(100% / 9);
-    height: calc(100% / 9);
+.ms-bg-red{
+    background-color: red;
 }
-.ms-square-hard{
-    width: calc(100% / 7);
-    height: calc(100% / 7);
-} */
 .ms-bg-lightblue{
     background-color: aqua;
 }

@@ -20,9 +20,6 @@
 // cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
 // const play = document.querySelector("#play");
 
-// Creo l'array vuoto in cui dovrò inserire i numeri generati randomicamente se non sono doppi 
-let numBombe= [``];
-
 
 
 const grid = document.querySelector("#grid");
@@ -30,8 +27,13 @@ const grid = document.querySelector("#grid");
 const diff = document.querySelector("#difficoltà");
 
 let row;
-// Quando clicclo su play  creo i quadrati e all'interno i numeri
+
+// Creo l'array vuoto in cui dovrò inserire i numeri generati randomicamente se non sono doppi 
+let bombs = [];
+
+// Quando clicclo su play  creo i quadrati e all'interno i numeri e genero le bombe
 play.addEventListener("click", function(){
+    bombs = generateBombs();
     grid.innerHTML = '';
     if (diff.value === `easy`) {
         for (let i = 1; i <= 100; i++) {
@@ -68,20 +70,25 @@ function generateSquare(number) {
     square.classList.add("align-items-center");
     square.innerHTML = `<span>${number}</span>`;
     square.addEventListener('click', function(){
-        this.classList.add(`ms-bg-lightblue`);
-        alert(`Hai cliccato il numero ${number}`);
-        console.log(`Hai cliccato il numero ${number}`);
+        if (bombs.includes(number)) {
+            this.classList.add(`ms-bg-red`);
+            alert(`Hai calpestato una bomba!`);
+        } else {
+            this.classList.add(`ms-bg-lightblue`);
+            console.log(`Hai cliccato il numero ${number}`);
+        }
     });
     return square;
 }
 
-// Creo una funzione per includere i numeri nell'array
-function bomb() {
+// Creo una funzione per generare bombe 
+function generateBombs() {
     let squareBomb = getRndInteger(1, 16);
-    if (!numBombe.includes(squareBomb)) {
-        numBombe.push(squareBomb);
+    let bomb = [];
+    if (!bomb.includes(squareBomb)) {
+        bomb.push(squareBomb);
     }
-    return  squareBomb;
+    return  bomb;
 }
 // Creo una funziona per generare numeri casuali per il pc
 function getRndInteger(min, max) {
